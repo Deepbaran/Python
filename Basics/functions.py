@@ -189,3 +189,10 @@ my_list = [1, 2, 3]
 print('my_list before bar():', my_list)
 bar(my_list)
 print('my_list after bar():', my_list)
+
+
+# Dunder or Magic Methods:
+# These methods start with and also end with double underscores.
+# example: __init__(), __call__(), __repr__(), __add__()
+# magic methods are not meant to be invoked by you, but the invocation happens internally from the class on a certain action.
+# For example, when you add two numbers using the + operator, internally, the __add__() method is called.
