@@ -57,3 +57,8 @@ Z = float(y)
 print(type(X), X)  # <class 'str'> 1
 print(type(Y), Y)  # <class 'int'> 2
 print(type(Z), Z)  # <class 'float'> 2.5
+
+# Take user input
+a = input()
+b = input("Insert the value of b")
+print(a, b)

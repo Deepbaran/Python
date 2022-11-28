@@ -33,10 +33,60 @@ fruits.pop(2)
 # Reverse list
 fruits.reverse()
 
-# Sort list
+# Sort list - Sort in-place
 fruits.sort()
+
+# Sort list - Returns a sorted list
+# sorted() works on any iterable type, not just lists
+fruits_sorted = sorted(fruits, reverse=False) # reverse is False by default
 
 # Reverse Sort
 fruits.sort(reverse=True)
 
 print(fruits)
+
+
+# create list with repeated elements
+list_with_zeros = [0] * 5
+print(list_with_zeros)
+
+
+# concatenation
+list_concat = list_with_zeros + fruits
+print(list_concat)
+
+
+# convert string to list
+string_to_list = list('Hello')
+print(string_to_list)
+
+
+# Slicing - Only lists, tuples and strings support slicing as they are ordered. Dictionaries and Sets do not support slicing as they are unordered.
+# a[start:stop:step], default step is 1
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+b = a[1:3] # Note that the last index is not included
+print(b)
+b = a[2:] # until the end
+print(b)
+b = a[:3] # from beginning
+print(b)
+a[0:3] = [0] # replace sub-parts, you need an iterable here -This is only support in lists, not in tuples and strings as both of them are immutable
+print(a)
+b = a[::2] # start to end with every second item
+print(b)
+a = a[::-1] # reverse the list with a negative step:
+print(a)
+b = a[:] # copy a list with slicing
+print(b)
+
+
+# List Comprehension
+a = [1, 2, 3, 4, 5, 6, 7, 8]
+b = [i * i for i in a] # squares each element
+print(b)
+
+
+# Nested Lists
+a = [[1, 2], [3, 4]]
+print(a)
+print(a[0])

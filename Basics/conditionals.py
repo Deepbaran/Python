@@ -69,6 +69,11 @@ if x is not y:
 
 
 
-# SPECIAL TYPE
+# Ternary Operators
 print(x if x in numbers else y)
 print(x if x not in numbers else y)
+
+
+# Check if element is in list - We can do this for strings, tuples, sets and keys in dictionaries
+a = [1,2,3,4]
+print(4 in a) # True

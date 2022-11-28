@@ -2,7 +2,7 @@
 
 people = ['John', 'Paul', 'Sara', 'Susan']
 
-# Simple for loop
+# Simple for loop - We can iterate through lists, Sets, tuples, strings, keys of dictionaries [dirtionary.keys()]
 for person in people:
     print(f'Current Person: {person}')
 
