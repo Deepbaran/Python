@@ -30,6 +30,3 @@ lock.release()
 with lock:
     print('Hello')
 """
-
-
-# Context Manager as a generator:
