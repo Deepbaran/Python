@@ -54,6 +54,12 @@ Operators:
 - For and operator the 2nd statemnet is evaluated only if the 1st statment is True
 """
 
+"""
+The isinstance() function returns True if the specified object is of the specified type, otherwise False.
+
+isinstance(object, type)
+"""
+
 x = 1           # int
 y = 2.5         # float
 name = 'John'   # str
