@@ -178,6 +178,17 @@ if __name__ == "__main__":
 # Array at end: [200.0, 300.0, 400.0]
 # end main
 
+"""
+Use the lock as a context manager:
+After lock.acquire() you should never forget to call lock.release() to unblock the code. You can also use a lock as a context manager, wich will safely lock and unlock your code.
+"""
+def add_100(number, lock):
+    for _ in range(100):
+        time.sleep(0.01)
+        with lock:
+            number.value += 1
+
+
 
 """
 Using Queues in Python:
