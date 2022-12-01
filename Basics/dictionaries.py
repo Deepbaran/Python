@@ -1,5 +1,6 @@
 # A Dictionary is a collection which is unordered, changeable and indexed. No duplicate members.
 # Possible key types - Any immutable type, like strings or numbers can be used as a key. Also, a tuple can be used if it contains only immutable elements.
+# Rather than Key-Value, it's Index-Value
 
 # Create dict
 person = {

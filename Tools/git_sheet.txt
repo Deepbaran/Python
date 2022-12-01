@@ -1,0 +1,61 @@
+touch .gitignore
+git config --global.name Deepbaran
+git config --global.email deepbaran97@gmail.com
+git init
+git add .
+git commit -m "Initial Commit"
+git remote add origin "repository link" # First time
+git status # Just to see
+git push origin master
+
+git pull "repository link" # Use this if there were any updates on the remote repository without change in the local repository
+git rm -r --cached bin # To explicitly stop git from tracking a folder or file that it was tracking 
+
+=========================================================
+echo "# CoreJavaNotes" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Deepbaran/CoreJavaNotes.git
+git push -u origin main
+                
+==========================================================
+git remote add origin https://github.com/Deepbaran/CoreJavaNotes.git
+git branch -M main
+git push -u origin main
+
+
+==========================================================
+FULL NOTE:
+* git init <- Initialize git in the directory.
+* git clone "url" <- Creates a local copy of project that already exists remotely. The clone includes all the project's files, history, and branches.
+* ls <- list out all the folders and files in the current directory.
+* cd <dir> <- Change the current directory.
+* pwd <- Shows current directory.
+* git status <- Shows the changes done after last commit.
+* git diff <file_name> <- Shows the changes done in the file.
+* There are two areas in git. Staged Area(green) and unstaged area(red). Any code that needs to be commited must be in the staged area and not in the unstaged area. Any changes done to a file means, that file is in unstaged area.
+* git add <file_name> <- Adds the changes done to the file to the staged area from unstaged area. To bring all the changes done in all the files in the current directory use, 'git add .'
+* git commit -m "comments" <- Commit the changes
+* git log <- Gives logs of all the commits done so far. To see a specified numbers of logs, use 'git log -n', put the number of logs in n. For, 5 logs, use 'git log -5'.
+* git show <commit_hash> <- Shows the changes done in that commit. commit hash is also called commit id.
+* git branch <- To see the all the available branches. And the current branch will be highlighted in green.
+* git checkout -b <branch_name> <- Creates a new branch.
+* git checkout <branch_name> <- Switches to the specified branch.
+* git branch -d <branch_name> <- Delete the specified branch. Cannot delete the current branch.
+* git merge <branch_name> <- Make sure that you are in the Master branch. Then run this command. It will merge the branch with the master branch.
+* git reset --hard HEAD^ <- Removes the latest commit and all the changes done in this commit.
+* git reset --soft <commit_hash> <- Removes the latest commit but the code change still remains.
+* git restore --staged <file_name> <- Removes the code change from the staged area.
+* git restore <file_name> <- Removes code change from unstaged area, i.e, removes the code change completely and restore the code before any changes.
+* git pull <- Pulls all the code changes done in the remote directory that are not present in the current directory.
+* git push <- push all the code changes from the local directory to the remote directory.
+* git commit --amend <- Adds the staged changes to the latest commit that is already commited. It will ask for confirmation. To confirm, press 'esc + w + q + enter'.
+* git reset HEAD --hard <- Reset the changes that were done after the last commit
+
+==========================================================
+* git <- Version Control [Distributed System]
+* github <- Cloud based platform
+* gitlab <- Cloud based platform
+

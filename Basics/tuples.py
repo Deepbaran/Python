@@ -76,3 +76,12 @@ print(name ,age, city)
 a = ((0, 1), ('age', 'height'))
 print(a)
 print(a[0])
+
+"""
+Zip:
+The zip() function returns a zip object, which is an iterator of tuples where the first item in each passed iterator is paired together, and then the second item in each passed iterator are paired together etc.
+"""
+a = ("John", "Charles", "Mike")
+b = ("Jenny", "Christy", "Monica")
+
+x = zip(a, b) # (('John', 'Jenny'), ('Charles', 'Christy'), ('Mike', 'Monica'))
