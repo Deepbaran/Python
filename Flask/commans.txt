@@ -1,0 +1,44 @@
+virtual environment:
+- create:
+1. python3 -m venv venv / python -m venv venv
+
+- activate:
+1. source venv/bin/activate / venv/bin/activate
+
+- run application:
+1. flask run
+
+- create environment file:
+1. pip install python-dotenv
+
+packages:
+- flask:
+1. pip install flask
+2. flask 1.x --> pip install "flask<2"
+
+- wtforms:
+1. pip install flask-wtf
+
+- MySQL:
+1. pip install flask-mysqldb
+
+- Hashing Passwors:
+1. pip install passlib
+
+- Database:
+1. pip install flask-sqlalchemy
+
+- Database Migrate:
+1. pip install flask-migrate
+
+- Creating migration repostory:
+1. flask db init
+
+- Automatic Migration Script Generation:
+1. flask db migrate -m "users table"
+
+- Apply Migration Changes to the database:
+1. flask db upgrade
+
+- Downgrade the DB changes due to migration:
+1. flask db downgrade
