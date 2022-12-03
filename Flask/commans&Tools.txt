@@ -1,0 +1,25 @@
+++++++++++++++++++
+Commands:
+++++++++++++++++++
+Virtual Environment:
+Run as administrator:
+1. pip install pipenv
+2. pipenv shell
+3. pipenv install <package_name>
+
+Initializing SQLite DB:
+>>> from app import app, db
+>>> app.app_context().push()
+>>> db.create_all()
+
+++++++++++++++++++
+packages/tools:
+++++++++++++++++++
+1. SQLAlchemy - ORM (Object Relation Mapper) - Similar to Sequalizer | Mongoose
+2. Marshmallow - Serialization. Marshmallow is a Python library that converts complex data types to and from Python data types. It is a powerful tool for both validating and converting data.
+3. Postman - To make request to the API and get data back
+
+++++++++++++++++++
+Notes:
+++++++++++++++++++
+4. The pipfile created by running pipenv shell has all of our dependencies and packges that we will install.
