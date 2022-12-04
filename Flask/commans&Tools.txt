@@ -12,6 +12,15 @@ Initializing SQLite DB:
 >>> app.app_context().push()
 >>> db.create_all()
 
+Celery:
+1. pip install celery
+
+Task Queue:
+
+MongoDB:
+1. 
+
+
 ++++++++++++++++++
 packages/tools:
 ++++++++++++++++++
