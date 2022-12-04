@@ -18,7 +18,7 @@ Celery:
 Task Queue:
 
 MongoDB:
-1. 
+1. pip install pymongo
 
 
 ++++++++++++++++++
