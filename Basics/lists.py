@@ -90,3 +90,9 @@ print(b)
 a = [[1, 2], [3, 4]]
 print(a)
 print(a[0])
+
+# Extend a list
+list1 = [1,2,3]
+list2 = [2,3,4]
+list1.extend(list2)
+print(list1) # [1,2,3,2,3,4]
