@@ -24,7 +24,7 @@ fruits_set.add('Apples')
 # del fruits_set
 
 # Copy set
-fruits_copy = fruits.copy()
+fruits_copy = fruits_set.copy()
 
 print(fruits_set, fruits_copy)
 
