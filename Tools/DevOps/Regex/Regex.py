@@ -2,6 +2,7 @@
 # Regex Practice - https://regexr.com/
 # https://youtu.be/rhzKDrUiJVk
 # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#:~:text=Regular%20expressions%20are%20patterns%20used,split()%20methods%20of%20String%20.
+# https://www.hackerrank.com/domains/regex?filters%5Bdifficulty%5D%5B%5D=easy
 # + ? * . \w \s \W \S \w{4} \w{4,} \w{4,5}
 # [fc] [a-z]
 # () | ^ $
