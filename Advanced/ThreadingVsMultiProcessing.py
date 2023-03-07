@@ -80,16 +80,16 @@ if __name__ == "__main__":
 
     # start all processes
     for process in processes:
-        thread.start()
+        process.start()
 
     # wait for all processes to finish
     # block the main thread until these processes are finished
     for process in processes:
-        thread.join()
+        process.join()
 
 """
 When is Multiprocessing useful:
-It is useful for CPU-bund tasks that have to do a lot of CPU operations for a large amount of data and require a lot of computation time.
+It is useful for CPU-bound tasks that have to do a lot of CPU operations for a large amount of data and require a lot of computation time.
 With multiprocessing you can split the data into equal parts and do parallel computing on different CPUs.
 
 Example: Claculate the square numbers for all numbers from 1 to 1000000. Divide the numbers into equal sized parts and use a process for each subset.
@@ -102,7 +102,7 @@ This is a mutex (or a lock) that allows only one thread to hold control of the P
 to execute at a time even in a multi-threaded architecture.
 
 Why is it needed?
-It is needed because CPython's (reference implementation of Python) memory management is not thread-safe. Python uses reference counteing
+It is needed because CPython's (reference implementation of Python) memory management is not thread-safe. Python uses reference counting
 for memory management. It means that objects created in Python have reference count variable that keeps track of the number of references
 that point to the object. When this count reached zero, the memory occupied by the object is released. The problem was that this reference
 count variable needed protection from race conditions where two threads increase or decrease its value simultaneously. If this happens, it

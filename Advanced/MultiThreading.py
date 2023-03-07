@@ -228,10 +228,11 @@ if __name__ == "__main__":
     lock = Lock()
 
     for i in range(num_threads):
-        t = Thread(name=f'Thread{i+1}', target=worker, args=(1, lock))
-        t.daemon = True # dies when the main thread dies
+        # t = Thread(name=f'Thread{i+1}', target=worker, args=(1, lock))
+        # t.daemon = True # dies when the main thread dies
+        t = Thread(name=f'Thread{i+1}', target=worker, args=(1, lock), daemon=True)
         t.start()
-
+        
     # fill the queue with items
     for x in range(20):
         q.put(x)

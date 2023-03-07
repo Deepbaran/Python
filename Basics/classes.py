@@ -2,9 +2,11 @@
 
 # Every class is a child class of Object class
 
+# Instance, Class and Static Methods - https://realpython.com/instance-class-and-static-methods-demystified/#:~:text=Class%20methods%20don't%20need,access%20to%20cls%20or%20self%20.
+
 """
 - A class method takes cls as the first parameter while a static method needs no specific parameters.
-- A class method can access or modify the class state while a static method can’t access or modify it.
+- A class method can access or modify the class state while a static method can't access or modify it.
 - In general, static methods know nothing about the class state. They are utility-type methods that take some parameters and work upon those parameters. On the other hand class methods must have class as a parameter.
 - We use @classmethod decorator in python to create a class method and we use @staticmethod decorator to create a static method in python.
 - We generally use the class method to create factory methods. Factory methods return class objects ( similar to a constructor ) for different use cases.
@@ -69,7 +71,6 @@ class Customer(User):
         # super - calling the constructor of the parent class
         # If there is a multiple inheritance, then super will call the constructors of each parent class in the order that they are mentioned.
         super(Customer, self).__init__(name, email, age)
-        self
         self.email = email
         self.age = age
         self.balance = 0

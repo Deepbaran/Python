@@ -296,7 +296,7 @@ def cube(number):
 
         p = Pool()
 
-        # by default this allocatesthe maximum number of available
+        # by default this allocates the maximum number of available
         # processors for this task --> os.cpu_count()
         result = p.map(cube, numbers)
 
