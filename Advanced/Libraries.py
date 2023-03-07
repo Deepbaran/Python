@@ -20,7 +20,3 @@ Counter - https://realpython.com/python-counter/#:~:text=Counter%20is%20a%20subc
 """
 sort - https://docs.python.org/3/howto/sorting.html
 """
-
-"""
-enumerate - https://www.programiz.com/python-programming/methods/built-in/enumerate
-"""

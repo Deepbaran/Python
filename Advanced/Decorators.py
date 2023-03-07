@@ -133,7 +133,7 @@ def my_decorator(func):
 # Decorator function arguments
 def repeat(num_times):
     def decorator_repeat(func):
-        functools.wraps(func)
+        @functools.wraps(func)
         def wrapper(*args, **kwargs):
             for _ in range(num_times):
                 result = func(*args, **kwargs)

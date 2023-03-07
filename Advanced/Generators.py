@@ -15,7 +15,7 @@ def my_generator():
 Calling the function does not execute it. Instead, the functin returns a generator object which is used to control execution.
 Generator objects execute when next() is called. Wehn calling next() the first time, execution begins at the start of the function and continues until the first yield statement where the value to the right of the statement is returned.
 Subsequent calls to next() continue from yield statement (and loop around) until another yield is reached.
-If yield is nto called because of a condition ir te end is reached, a StopIteration exception is raised.
+If yield is not called because of a condition in the end is reached, a StopIteration exception is raised.
 """
 
 def countdown(num):

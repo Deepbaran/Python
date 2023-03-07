@@ -6,6 +6,10 @@ In Python, both the terms iterators and iterables are sometimes used interchange
 
 We can say that an iterable is an object which can be iterated upon, and an iterator is an object which keeps a state and produces the next value each time.
 
+An iterable is any Python object capable of returning its members one at a time, permitting it to be iterated over in a for-loop. Familiar examples of iterables include lists, tuples, and strings - any such sequence can be iterated over in a for-loop.
+
+An iterator is an object that contains a countable number of values. An iterator is an object that can be iterated upon, meaning that you can traverse through all the values. Technically, in Python, an iterator is an object which implements the iterator protocol, which consist of the methods __iter__() and __next__().
+
 NOTE: Every iterator is an iterable, but not every iterable is an iterator.
 """
 
@@ -29,7 +33,7 @@ The for statement does that automatically, creating a temporary unnamed variable
 # Iterator in Python
 """
 An iterator is an object which must implement the iterator protocol consisting of the two methods __iter__() and __next__().
-An iterator contains a countable number of values and can return the next element in the sequence, on element at a time.
+An iterator contains a countable number of values and can return the next element in the sequence, one element at a time.
 Implementing __iter__() is required to allow both containers and iterators to be used with the for and in statements.
 Implementing __next__() specifies how to return the next item from the iterator. If there are no further items, a StopIteration exception should be raised.
 After implementing __iter__() and __next__(), we can also explicitly call iter() and next().
@@ -66,11 +70,11 @@ print(next(iterator))  # Output: Green
 # StopIteration
 
 
-# Why not ecery iterale is an iterator
-# Every iterable is an iterator. This is for example because we cannot use next() with every iterable, so it does not follow the iterator protocol
+# Why not every iterable is an iterator
+# Every iterable is not an iterator. This is for example because we cannot use next() with every iterable, so it does not follow the iterator protocol
 
 a = [1,2,3]
 # next(a)
 # Traceback (most recent call last):
-#  File "<stdin>", line 1, in <module>
+#  File "<stdin>"33, line 1, in <module>
 # TypeError: 'list' object is not an iterator
