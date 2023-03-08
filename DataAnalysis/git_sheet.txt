@@ -44,7 +44,7 @@ FULL NOTE:
 * git checkout -b <branch_name> <- Creates a new branch.
 * git checkout <branch_name> <- Switches to the specified branch.
 * git branch -d <branch_name> <- Delete the specified branch. Cannot delete the current branch.
-* git merge <branch_name> <- Make sure that you are in the Master branch. Then run this command. It will merge the branch with the master branch.
+* git merge <branch_name> <- Make sure that you are in the branch. Then run this command. It will merge the branch with the master branch.
 * git reset --hard HEAD^ <- Removes the latest commit and all the changes done in this commit.
 * git reset --soft <commit_hash> <- Removes the latest commit but the code change still remains.
 * git restore --staged <file_name> <- Removes the code change from the staged area.
