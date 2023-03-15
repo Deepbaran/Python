@@ -96,3 +96,16 @@ list1 = [1,2,3]
 list2 = [2,3,4]
 list1.extend(list2)
 print(list1) # [1,2,3,2,3,4]
+
+# Find element in a list
+a = [1,2,3,4,5]
+print(6 in a) # False
+print(3 in a) # True
+try:
+    # If element 3 and 7 are present in the list, then their indexes will be returned. Otherwise ValueError Exception will be thrown
+    ix1 = a.index(3)
+    print(ix1) # 2 
+    ix2 = a.index(7) # ValueError Exception will be thrown
+except ValueError as e:
+    print(f"The element {e} is not present in the array {a}. Hence {ValueError} error is thrown")
+    # The element 7 is not in list is not present in the array [1, 2, 3, 4, 5]. Hence <class 'ValueError'> error is thrown
