@@ -30,7 +30,9 @@ for i in range(5):
 # [16, 8]
 
 
-# Filter - filter creates a list of elements for which a function returns true.
+# Filter - filter creates a list of elements for which a function returns true. 
+# So we send a Predicate (A function that returns boolean) lambda function along with the list
+# And the elements for which the predicate returns True, remains in the final Filter Object, which can later be converted into a list.
 number_list = range(-5, 5)
 less_than_zero = list(filter(lambda x: x < 0, number_list))
 print(less_than_zero)
