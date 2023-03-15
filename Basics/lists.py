@@ -109,3 +109,7 @@ try:
 except ValueError as e:
     print(f"The element {e} is not present in the array {a}. Hence {ValueError} error is thrown")
     # The element 7 is not in list is not present in the array [1, 2, 3, 4, 5]. Hence <class 'ValueError'> error is thrown
+
+# Count number of zeros in a list
+nums = [1,0,2,3,0]
+print(nums.count(0)) # 2
