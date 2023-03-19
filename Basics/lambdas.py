@@ -51,3 +51,15 @@ product_a = reduce(lambda x, y: x*y, a)
 print(product_a)
 sum_a = reduce(lambda x, y: x+y, a)
 print(sum_a)
+
+# >>> def fun(x,y):
+# ...     print(x,y)
+# ...     x += y
+# ...     return x
+# ... 
+# >>> reduce(fun, a) # The value returned from fun is stored and used as x in the next iteration
+# 1 2
+# 3 3
+# 6 4
+# 10
+# >>> 
