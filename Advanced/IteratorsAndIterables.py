@@ -1,5 +1,5 @@
 """
-Iteration is a processof using a loop to access all the elements of a sequence. Most of the time, we use for loop to iterate over a sequence.
+Iteration is a process of using a loop to access all the elements of a sequence. Most of the time, we use for loop to iterate over a sequence.
 But there are some times when we need to iterate over a sequence using different approach. In those cases, we need to use an iterator.
 
 In Python, both the terms iterators and iterables are sometimes used interchangeably but they have different meanings.

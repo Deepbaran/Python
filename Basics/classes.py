@@ -12,6 +12,8 @@
 - We generally use the class method to create factory methods. Factory methods return class objects ( similar to a constructor ) for different use cases.
 - We generally use static methods to create utility functions.
 - Both staticmethod and classmethod can be inherited and overridden.
+- Both of them belong to the class and not the instance.
+- classmethod cannot access instance variables, only the class variables.
 """
 
 """
@@ -100,3 +102,20 @@ janet.set_balance(500)
 print(janet.greeting())
 print(Customer.class_method())
 print(Customer.static_method())
+
+"""
+functions wihtout self or cls, belong to the class.
+"""
+# >>> class a:
+# ...     def b():
+# ...             print(10)
+# ... 
+# >>> a1 = a()
+# >>> a1.b
+# <bound method a.b of <__main__.a object at 0x102589660>>
+# >>> a1.b()
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# TypeError: a.b() takes 0 positional arguments but 1 was given
+# >>> a.b()
+# 10

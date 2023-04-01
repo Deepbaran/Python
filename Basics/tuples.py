@@ -20,7 +20,7 @@ print(fruits[-1])
 # fruits[0] = 'Pears' # ERROR
 
 # Delete tuple
-del fruits2
+# del fruits2
 
 # Length of tuple
 print(len(fruits))
