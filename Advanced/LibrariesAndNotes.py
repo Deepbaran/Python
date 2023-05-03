@@ -61,3 +61,7 @@ min max - https://realpython.com/python-min-and-max/
 """
 functools - https://towardsdatascience.com/introducing-pythons-functools-module-2c4cba4774e
 """
+
+"""
+Python Closures - https://www.programiz.com/python-programming/closure#:~:text=Python%20closure%20is%20a%20nested,of%20nested%20functions%20in%20Python.
+"""

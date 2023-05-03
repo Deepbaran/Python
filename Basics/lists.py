@@ -79,6 +79,16 @@ print(a)
 b = a[:] # copy a list with slicing
 print(b)
 
+# >>> a = [1,2]
+# >>> a
+# [1, 2]
+# >>> a[::-1]
+# [2, 1]
+# >>> a
+# [1, 2]
+# >>> a.reverse()
+# >>> a
+# [2, 1]
 
 # List Comprehension
 a = [1, 2, 3, 4, 5, 6, 7, 8]

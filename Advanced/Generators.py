@@ -149,4 +149,43 @@ class firstn:
 
 firstn_object = firstn(1000000)
 print(sum(firstn_object)) # 499999500000
- 
+
+
+"""
+ Recursively converting nested generators to list or lists.
+"""
+
+def nestedGenerator():
+    def gen1():
+        nums = [[1,2,3],[3,4]]
+        for num in nums:
+            yield num
+    def gen2():
+        nums = [gen1(),gen1()]
+        for num in nums:
+            yield num
+    g = gen2()
+    for v in gen2():
+        yield v
+
+def get_res():
+    import types
+    def generatorToList( res ):
+        if isinstance(res, types.GeneratorType):
+            for r in res:
+                if isinstance(r, types.GeneratorType): result.append(generatorToList(r))
+                else: result.append(r)
+        else: result.append(res)
+        return result
+    result = []
+    res = nestedGenerator()
+    return generatorToList(res)
+
+
+"""
+yield vs return:
+
+The yield statement suspends a function's execution and sends a value back to the caller, but retains enough state to enable the function to resume where it left off. When the function resumes, it continues execution immediately after the last yield run. This allows its code to produce a series of values over time, rather than computing them at once and sending them back like a list.
+
+Return sends a specified value back to its caller whereas Yield can produce a sequence of values. We should use yield when we want to iterate over a sequence, but don't want to store the entire sequence in memory. Yield is used in Python generators. A generator function is defined just like a normal function, but whenever it needs to generate a value, it does so with the yield keyword rather than return. If the body of a def contains yield, the function automatically becomes a generator function. 
+"""

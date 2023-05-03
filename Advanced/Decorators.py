@@ -14,7 +14,7 @@ def my_function():
 """
 In Python, functions are first class objects, which means that - like any object - they can be defined inside another function, passed as argument to another funtion, or retirned from other functions.
 
-A decorator is a function is a function that takes another function as argument, wraps its behavior inside an inner function, and returns the wrapped function. As a consequence, the decorated function now has extended functionality.
+A decorator is a function that takes another function as argument, wraps its behavior inside an inner function, and returns the wrapped function. As a consequence, the decorated function now has extended functionality.
 """
 
 # A decorator function takes another function as argument, wraps its behavior inside an inner finction, and returns the erapped funtion.
