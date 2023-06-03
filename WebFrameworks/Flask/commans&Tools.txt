@@ -3,9 +3,14 @@ Commands:
 ++++++++++++++++++
 Virtual Environment:
 Run as administrator:
+
+pipenv
 1. pip install pipenv
 2. pipenv shell
-3. pipenv install <package_name>
+3. pipenv install <- Setup pipenv in a new project
+4. pipenv install <package_name>
+5. pip freeze > requirements.txt
+6. pipenv --venv <- Gives the directory where the virtual environment is setup
 
 Initializing SQLite DB:
 >>> from app import app, db
