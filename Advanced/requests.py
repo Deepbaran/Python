@@ -1,4 +1,8 @@
 """
+https://realpython.com/api-integration-in-python/
+"""
+
+"""
 REST Architecture:
 REST stands for representational state transfer and is a software architecture style that defines a pattern for client and server communications over a network. REST provides a set of constraints for software architecture to promote performance, scalability, simplicity, and reliability in the system.
 
@@ -95,9 +99,57 @@ The endpoints listed above represent only one resource in the system. Production
 """
 
 """
-request
+requests
 """
+import requests
+import json
 
-"""
-urllib
-"""
+#GET
+api_url = "https://jsonplaceholder.typicode.com/todos/1"
+res = requests.get(api_url)
+print(res.json()) # {'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}
+print(res.status_code) # 200
+print(res.headers["Content-Type"]) # 'application/json; charset=utf-8'
+
+#POST
+api_url = "https://jsonplaceholder.typicode.com/todos"
+todo = {
+    "userId": 1,
+    "title": "Buy milk",
+    "completed": False
+}
+res = requests.post(api_url, json=todo)
+print(res.json()) # {'userId': 1, 'title': 'Buy milk', 'completed': False, 'id': 201}
+print(res.status_code) # 201
+
+# If you don’t use the json keyword argument to supply the JSON data, then you need to set Content-Type accordingly and serialize the JSON manually.
+headers =  {"Content-Type":"application/json"}
+res = requests.post(api_url, data=json.dumps(todo), headers=headers)
+print(res.json()) # {'userId': 1, 'title': 'Buy milk', 'completed': False, 'id': 201}
+print(res.status_code) # 201
+
+#PUT
+api_url = "https://jsonplaceholder.typicode.com/todos/10"
+res = requests.get(api_url)
+print(res.json()) # {'userId': 1, 'id': 10, 'title': 'illo est ... aut', 'completed': True}
+
+todo = {"userId": 1, "title": "Wash car", "completed": True}
+res = requests.put(api_url, json=todo)
+print(res.json()) # {'userId': 1, 'title': 'Wash car', 'completed': True, 'id': 10}
+print(res.status_code) # 200
+
+#PATCH
+api_url = "https://jsonplaceholder.typicode.com/todos/10"
+res = requests.patch(api_url)
+print(res.json()) # {'userId': 1, 'id': 10, 'title': 'illo est ... aut', 'completed': True}
+
+todo = {"title": "Mow lawn"}
+res = requests.patch(api_url, json=todo)
+print(res.json()) # {'userId': 1, 'id': 10, 'title': 'Mow lawn', 'completed': True}
+print(res.status_code) # 200
+
+#DELETE
+api_url = "https://jsonplaceholder.typicode.com/todos/10"
+res = requests.delete(api_url)
+print(res.json()) # {}
+print(res.status_code) # 200
