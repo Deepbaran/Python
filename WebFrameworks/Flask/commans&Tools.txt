@@ -4,6 +4,11 @@ Commands:
 Virtual Environment:
 Run as administrator:
 
+Virtual env:
+> python -m venv ./pyasync
+> .\pyasync\Scripts\activate.bat
+> pip3 install --upgrade pip aiohttp aiofiles
+
 pipenv
 1. pip install pipenv
 2. pipenv shell
