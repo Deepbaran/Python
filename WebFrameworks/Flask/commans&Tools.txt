@@ -30,6 +30,8 @@ Task Queue:
 MongoDB:
 1. pip install pymongo
 
+Requirements:
+> pip3 freeze > requirements.txt
 
 ++++++++++++++++++
 packages/tools:
