@@ -17,6 +17,8 @@ pipenv
 5. pip freeze > requirements.txt
 6. pipenv --venv <- Gives the directory where the virtual environment is setup
 
+> pipenv install flask-bcrypt flask-restplus Flask-Migrate pyjwt Flask-Script flask_testing
+
 Initializing SQLite DB:
 >>> from app import app, db
 >>> app.app_context().push()
@@ -44,3 +46,26 @@ packages/tools:
 Notes:
 ++++++++++++++++++
 4. The pipfile created by running pipenv shell has all of our dependencies and packges that we will install.
+
+++++++++++++++++++
+Folder Structure:
+++++++++++++++++++
+
+.
+├── app
+│   ├── __init__.py
+│   ├── main
+│   │   ├── controller
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── model
+│   │   │   └── __init__.py
+│   │   └── service
+│   │       └── __init__.py
+│   └── test
+│       └── __init__.py
+└── requirements.txt
+
+- The model package will contain all of our database models 
+- The service package will contain all the business logic of our application 
+- The controller package will contain all our application endpoints.
