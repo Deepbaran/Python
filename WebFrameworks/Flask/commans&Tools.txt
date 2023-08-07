@@ -4,6 +4,18 @@ Commands:
 Virtual Environment:
 Run as administrator:
 
+Virtual env: [ctrl+L -> Clear terminal]
+> python -m venv venv
+> .\venv\Scripts\activate
+(venv) > pip install flask
+(venv) > flask run
+(venv) > $env:FLASK_ENV="development" <- Setting up the FLASK_ENV environment variable as development
+(venv) > $env:FLASK_DEBUG=1 <- Setting up the FLASK_DEBUG environment variable as 1 to activate the debug mode
+(venv) > $env:PYTHONDONTWRITEBYTECODE=1 <- This prevents __pycache__ folder from getting created
+(venv) > $env:FLASK_APP="app"
+(venv) > gci env: <- Check all the environmentvariables
+(venv) > pip install mysql-connector-python
+
 Virtual env:
 > python -m venv ./pyasync
 > .\pyasync\Scripts\activate.bat

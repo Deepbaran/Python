@@ -3,5 +3,6 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "python.defaultInterpreterPath": "C:\\Users\\deepb\\.msvscode.hdinsight\\hdinsightJupyter\\Scripts\\python.exe"
 }
