@@ -14,6 +14,7 @@ Virtual env: [ctrl+L -> Clear terminal]
 (venv) > $env:PYTHONDONTWRITEBYTECODE=1 <- This prevents __pycache__ folder from getting created
 (venv) > $env:FLASK_APP="app"
 (venv) > gci env: <- Check all the environmentvariables
+(venv) > $env:FLASK_ENV="development";$env:FLASK_DEBUG=1;$env:PYTHONDONTWRITEBYTECODE=1
 (venv) > pip install mysql-connector-python
 
 Virtual env:

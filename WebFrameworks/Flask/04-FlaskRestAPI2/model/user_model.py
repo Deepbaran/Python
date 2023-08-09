@@ -55,3 +55,30 @@ class user_model():
         else: 
             # return "Nothing to Delete"
             return make_response({"message":"Nothing to Delete"}, 202)
+        
+    def user_patch_model(self, id, data):
+        # UPDATE users SET col1=val, col2=val WHERE id={id}
+        qry = "UPDATE users SET "
+        for k, v in data.items():
+            qry += f"{k}='{v}',"
+        qry = qry[:-1] + f" WHERE id='{id}'" # Removing the comma at the end of the query and adding the WHERE condition
+        self.cur.execute(qry)
+        if self.cur.rowcount > 0 : 
+            # return "User Updated Successfully"
+            return make_response({"message":"User Updated Successfully"}, 201)
+        else: 
+            # return "Nothing to Update"
+            return make_response({"message":"Nothing to Update"}, 202)
+        
+    def user_pagination_model(self, data):
+        limit = int(data["limit"])
+        page = int(data["page"])
+        start = (page * limit) - limit
+        qry = f"SELECT * FROM users LIMIT {start}, {limit}" # startingIndex (starts from 0th Index), Limit
+        self.cur.execute(qry)
+        result = self.cur.fetchall()
+        if len(result) > 0:
+            res = make_response({"payload":result, "page_no":page, "limit":limit}, 200)
+            return res
+        else:
+            return make_response({"message":"No Data Found"}, 204)
