@@ -1,6 +1,7 @@
 from app import app
 from model.user_model import user_model
 from flask import request
+from datetime import datetime
 
 obj = user_model()
 
@@ -29,3 +30,19 @@ def user_patch_controller(id):
 def user_pagination_controller():
     # query parameter passed in request.args
     return obj.user_pagination_model(request.args)
+
+@app.route("/users/<uid>/upload/avatar", methods=["PUT"])
+def user_upload_avatar_controller(uid):
+    # https://api.github.com/users
+    file = request.files['avatar']
+    uniqueFileName = str(datetime.now().timestamp()).replace(".", "")
+    fileExtension = str(file.filename).split(".")[-1]
+    filename = f"{uniqueFileName}.{fileExtension}"
+    filepath = f"uploads/avatar/{filename}"
+    file.save(filepath)
+    print(filepath)
+    return obj.user_upload_avatar_model(uid, filepath)
+
+@app.route("/uploads/avatar/<id>")
+def user_get_avatar_controller(id):
+    return obj.user_get_avatar_controller(id)

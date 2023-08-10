@@ -1,6 +1,6 @@
 import mysql.connector
 import json
-from flask import make_response
+from flask import make_response, send_file
 
 class user_model():
     def __init__(self):
@@ -15,7 +15,7 @@ class user_model():
     def user_getall_model(self):
         self.cur.execute("SELECT * FROM users")
         result = self.cur.fetchall()
-        if len(result) > 0: 
+        if result: 
             # We can return string and dictionary for json response
             # Serialize obj to a JSON formatted str.
             # content-type -> text/html
@@ -77,8 +77,23 @@ class user_model():
         qry = f"SELECT * FROM users LIMIT {start}, {limit}" # startingIndex (starts from 0th Index), Limit
         self.cur.execute(qry)
         result = self.cur.fetchall()
-        if len(result) > 0:
+        if result:
             res = make_response({"payload":result, "page_no":page, "limit":limit}, 200)
             return res
+        else:
+            return make_response({"message":"No Data Found"}, 204)
+        
+    def user_upload_avatar_model(self, uid, filepath):
+        self.cur.execute(f"UPDATE users SET avatar='{filepath}' WHERE id={uid}")
+        if self.cur.rowcount > 0 : 
+            return make_response({"message":"File Uploaded Successfully"}, 201)
+        else: 
+            return make_response({"message":"Nothing to Upload"}, 202)
+        
+    def user_get_avatar_controller(self, id):
+        self.cur.execute(f"SELECT avatar FROM users WHERE id={id}")
+        result = self.cur.fetchall()
+        if result and result[0]["avatar"]:
+            return send_file(result[0]["avatar"])
         else:
             return make_response({"message":"No Data Found"}, 204)

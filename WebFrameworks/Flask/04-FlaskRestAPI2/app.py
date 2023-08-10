@@ -16,6 +16,8 @@ from controller import * # for 'import *' to work, we need to make sure that the
 if __name__ == "__main__":
     # If you do not wish to set environment variable as DEBUG, then pass debug=True here
     app.run(port=5000, debug=True)
+    # But if we are using venv, use the below script to make flask run in debug mode
+    # $env:FLASK_ENV="development";$env:FLASK_DEBUG=1;$env:PYTHONDONTWRITEBYTECODE=1
 
 """
 1. Make it a employee management application with SQLite/PostgreSQL/MySQL
