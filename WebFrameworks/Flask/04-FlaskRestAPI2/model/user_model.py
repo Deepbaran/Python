@@ -1,16 +1,19 @@
+from config import dbconfig
 import mysql.connector
-import json
 from flask import make_response, send_file
+from datetime import datetime, timedelta
+import jwt
 
 class user_model():
     def __init__(self):
         try:
-            self.con = mysql.connector.connect(host="localhost",user="root",password="12345678",database="flask_tutorial_1")
+            print(dbconfig)
+            self.con = mysql.connector.connect(host=dbconfig['hostname'],user=dbconfig['username'],password=dbconfig['password'],database=dbconfig['database'])
             self.con.autocommit = True
             self.cur = self.con.cursor(dictionary=True) # Records received from the DB will be in dictionary format
-            print("Connection Successful")
+            print("Connection Successful: user_model")
         except:
-            print("Some error")
+            print("Some error: user_model")
 
     def user_getall_model(self):
         self.cur.execute("SELECT * FROM users")
@@ -33,13 +36,13 @@ class user_model():
             # 204 is a status code that is such a status code where we do not need to send any response body. hence the body is not sent
 
     def user_addone_model(self, data):
-        self.cur.execute(f"INSERT INTO users(name, email, phone, role, password) VALUES('{data['name']}', '{data['email']}', '{data['phone']}', '{data['role']}', '{data['password']}')")
+        self.cur.execute(f"INSERT INTO users(name, email, phone, password, role_id) VALUES('{data['name']}', '{data['email']}', '{data['phone']}', '{data['password']}', '{data['role_id']}')")
         # self.con.commit() # As autocommit is enabled, we do not need to commit everytime
         # return "User Created Successfully"
         return make_response({"message":"User Created Successfully"}, 201)
     
     def user_update_model(self, data):
-        self.cur.execute(f"UPDATE users SET name='{data['name']}', email='{data['email']}', phone='{data['phone']}', role='{data['role']}', password='{data['password']}' WHERE id={data['id']}")
+        self.cur.execute(f"UPDATE users SET name='{data['name']}', email='{data['email']}', phone='{data['phone']}', password='{data['password']}',role_id='{data['role_id']}' WHERE id={data['id']}")
         if self.cur.rowcount > 0 : 
             # return "User Updated Successfully"
             return make_response({"message":"User Updated Successfully"}, 201)
@@ -94,6 +97,31 @@ class user_model():
         self.cur.execute(f"SELECT avatar FROM users WHERE id={id}")
         result = self.cur.fetchall()
         if result and result[0]["avatar"]:
-            return send_file(result[0]["avatar"])
+            return make_response(send_file(result[0]["avatar"]), 200)
         else:
             return make_response({"message":"No Data Found"}, 204)
+        
+    def user_login_model(self, data):
+        self.cur.execute(f"SELECT id, name, email, phone, avatar, role_id FROM users WHERE email='{data['email']}' AND password='{data['password']}'")
+        result = self.cur.fetchall()
+        if result:
+            userdata = result[0]
+            exp_time = datetime.now() + timedelta(minutes=15)
+            exp_epoch_time = int(exp_time.timestamp()) # Gives epoch time
+            payload= {
+                "payload": userdata,
+                "exp": exp_epoch_time
+            }
+            token = jwt.encode(payload=payload, key="Deep", algorithm="HS256")
+            return make_response({"token": token}, 200)
+        else:
+            return make_response({"message":"No Data Found"}, 204)
+        
+    def user_addmultiple_controller(self, data):
+        # INSERT INTO table(columns) VALUES () () ()
+        qry = "INSERT INTO users(name, email, phone, password, role_id) VALUES "
+        for userdata in data:
+            qry += f"('{userdata['name']}', '{userdata['email']}', '{userdata['phone']}', '{userdata['password']}', '{userdata['role_id']}'),"
+        qry = qry[:-1] # qry.rstrip(",")
+        self.cur.execute(qry)
+        return make_response({"message":"Users Created Successfully"}, 201)

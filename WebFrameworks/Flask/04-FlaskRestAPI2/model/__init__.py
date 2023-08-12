@@ -1,1 +1,1 @@
-from model import user_model
+from model import user_model, auth_model

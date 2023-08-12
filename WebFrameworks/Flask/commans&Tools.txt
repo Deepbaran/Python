@@ -16,6 +16,8 @@ Virtual env: [ctrl+L -> Clear terminal]
 (venv) > gci env: <- Check all the environmentvariables
 (venv) > $env:FLASK_ENV="development";$env:FLASK_DEBUG=1;$env:PYTHONDONTWRITEBYTECODE=1
 (venv) > pip install mysql-connector-python
+(venv) > pip install PyJWT
+(venv) > pip install python-dotenv
 
 Virtual env:
 > python -m venv ./pyasync

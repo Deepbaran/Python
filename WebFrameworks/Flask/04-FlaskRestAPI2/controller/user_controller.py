@@ -1,11 +1,13 @@
 from app import app
-from model.user_model import user_model
+from model import user_model, auth_model
 from flask import request
 from datetime import datetime
 
-obj = user_model()
+obj = user_model.user_model()
+auth = auth_model.auth_model()
 
 @app.route("/users/getall")
+@auth.token_auth()
 def user_getall_controller():
     return obj.user_getall_model()
 
@@ -14,7 +16,14 @@ def user_addone_controller():
     # request body is in request.form
     return obj.user_addone_model(request.form)
 
+@app.route("/users/addmultiple", methods=["POST"])
+def user_addmultiple_controller():
+    # If we passed the data in a form, we would have used request.form
+    # But we are sending the data in json form. Hence, request.json
+    return obj.user_addmultiple_controller(request.json) 
+
 @app.route("/users/update", methods=["PUT"])
+@auth.token_auth()
 def user_update_controller():
     return obj.user_update_model(request.form)
 
@@ -43,6 +52,10 @@ def user_upload_avatar_controller(uid):
     print(filepath)
     return obj.user_upload_avatar_model(uid, filepath)
 
-@app.route("/uploads/avatar/<id>")
+@app.route("/users/uploads/avatar/<id>")
 def user_get_avatar_controller(id):
     return obj.user_get_avatar_controller(id)
+
+@app.route("/users/login", methods=["POST"])
+def user_login_controller():
+    return obj.user_login_model(request.form)
